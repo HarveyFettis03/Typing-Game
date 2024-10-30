@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_twoTone.ogg-213a06f610609f4ff7c84c6a6b62076d.oggstr"
+
+[deps]
+
+source_file="res://kenney_space-shooter-redux/Bonus/sfx_twoTone.ogg"
+dest_files=[ "res://.import/sfx_twoTone.ogg-213a06f610609f4ff7c84c6a6b62076d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
