@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Typing Game"
+run/main_scene="res://Typing Game.tscn"
 config/icon="res://icon.png"
 
 [rendering]
