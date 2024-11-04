@@ -32,19 +32,16 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 425.133, 467.911, 92.3571, 84.8997 )
 script = ExtResource( 5 )
-blue = null
-green = null
-red = null
 
 [node name="RichTextLabel" type="RichTextLabel" parent="EnemyContainer/Enemy"]
-margin_left = -55.2278
-margin_top = 44.0
-margin_right = 62.7722
-margin_bottom = 89.0
+margin_left = -69.0
+margin_top = 45.0
+margin_right = 82.0
+margin_bottom = 99.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[center]type[/center]"
-text = "type"
+bbcode_text = "[center]type this[/center]"
+text = "type this"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
