@@ -32,9 +32,6 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 425.133, 467.911, 92.3571, 84.8997 )
 script = ExtResource( 5 )
-blue = null
-green = null
-red = null
 
 [node name="RichTextLabel" type="RichTextLabel" parent="EnemyContainer/Enemy"]
 margin_left = -55.2278
