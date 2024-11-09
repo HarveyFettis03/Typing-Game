@@ -3,8 +3,21 @@ extends Node2D
 var active_enemy = null 
 var current_letter_index = -1
 
+var Enemy =preload("res://Enemy.tscn")
 
 onready var enemy_Container = $EnemyContainer
+onready var spawn_container = $EnemySpawn
+onready var spawn_timer = $SpawnTimer
+
+
+func _ready() -> void:
+	randomize()
+	spawn_timer.start()
+	spawn_enemy()
+
+
+
+
 #finds the closest enemy to player if 2 start with the same letter
 func find_new_enemy(typed_character: String):
 	for enemy in enemy_Container.get_children():
@@ -38,3 +51,17 @@ func _unhandled_input(event: InputEvent) -> void:
 					active_enemy = null
 			else:
 				print("Failedtyped %s instead of %s" % [key_typed, next_character])
+
+
+
+
+func _on_SpawnTimer_timeout():
+	spawn_enemy()
+	
+	
+func spawn_enemy():
+	var enemy_instance = Enemy.instance()
+	var spawns = spawn_container.get_children()
+	var index = randi() % spawns.size()
+	enemy_Container.add_child(enemy_instance)
+	enemy_instance.global_position = spawns[index].global_position

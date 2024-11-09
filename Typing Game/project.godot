@@ -19,6 +19,11 @@ config/name="Typing Game"
 run/main_scene="res://Typing Game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+WordList="*res://WordList.gd"
+
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"
