@@ -38,4 +38,8 @@ position = Vector2( 1071.36, 171.883 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="DifficultyTimer" type="Timer" parent="."]
+autostart = true
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
+[connection signal="timeout" from="DifficultyTimer" to="." method="_on_DifficultyTimer_timeout"]

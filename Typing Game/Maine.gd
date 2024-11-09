@@ -2,6 +2,7 @@ extends Node2D
 
 var active_enemy = null 
 var current_letter_index = -1
+var difficulty: int = 0
 
 var Enemy =preload("res://Enemy.tscn")
 
@@ -65,3 +66,14 @@ func spawn_enemy():
 	var index = randi() % spawns.size()
 	enemy_Container.add_child(enemy_instance)
 	enemy_instance.global_position = spawns[index].global_position
+	enemy_instance.set_difficulty(difficulty)
+
+
+func _on_DifficultyTimer_timeout():
+	difficulty += 1
+	GlobalSignals.emit_signal("difficulty_increased", difficulty)
+	print("Difficulty increased to %d" % difficulty)
+	var new_wait_time = spawn_timer.wait_time - 0.2
+	spawn_timer.wait_time = clamp(new_wait_time, 1, spawn_timer.wait_time)
+	
+

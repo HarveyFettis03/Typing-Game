@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 WordList="*res://WordList.gd"
+GlobalSignals="*res://GlobalSignals.gd"
 
 [rendering]
 

@@ -15,6 +15,16 @@ onready var prompt_text = prompt.text
 func _ready() -> void:
 	prompt_text =  WordList.get_prompt()
 	prompt.parse_bbcode(set_center_tags(prompt_text))
+	GlobalSignals.connect("difficulty_increased", self, "handle_difficulty_increased")
+
+func handle_difficulty_increased(new_difficulty: int):
+	var new_speed = speed + (0.125 * new_difficulty) #hits speed and max spawn at same time
+	speed = clamp(new_speed, speed, 3)
+
+
+func set_difficulty(difficulty: int):
+	handle_difficulty_increased(difficulty)
+	
 
 func get_prompt() -> String:
 	return prompt_text
