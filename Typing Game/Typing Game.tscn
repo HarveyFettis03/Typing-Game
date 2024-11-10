@@ -45,6 +45,7 @@ position = Vector2( 1071.36, 171.883 )
 wait_time = 5.0
 
 [node name="DifficultyTimer" type="Timer" parent="."]
+wait_time = 10.0
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -56,11 +57,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Top Row2" type="CenterContainer" parent="CanvasLayer/VBoxContainer"]
+[node name="TopRow2" type="CenterContainer" parent="CanvasLayer/VBoxContainer"]
 margin_right = 1024.0
 margin_bottom = 49.0
 
-[node name="Top Row" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Top Row2"]
+[node name="TopRow" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/TopRow2"]
 margin_left = 455.0
 margin_right = 569.0
 margin_bottom = 49.0
@@ -68,13 +69,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Enemies Label" type="Label" parent="CanvasLayer/VBoxContainer/Top Row2/Top Row"]
+[node name="EnemiesLabel" type="Label" parent="CanvasLayer/VBoxContainer/TopRow2/TopRow"]
 margin_right = 92.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 1 )
 text = "Killed:"
 
-[node name="Enemies Killed Value" type="Label" parent="CanvasLayer/VBoxContainer/Top Row2/Top Row"]
+[node name="KilledValue" type="Label" parent="CanvasLayer/VBoxContainer/TopRow2/TopRow"]
 margin_left = 96.0
 margin_right = 114.0
 margin_bottom = 49.0
@@ -90,7 +91,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bot Row" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+[node name="BotRow" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
 margin_top = 551.0
 margin_right = 1024.0
 margin_bottom = 600.0
@@ -98,17 +99,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Bot Row"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/BotRow"]
 margin_right = 171.0
 margin_bottom = 49.0
 
-[node name="Difficulty Label" type="Label" parent="CanvasLayer/VBoxContainer/Bot Row/HBoxContainer"]
+[node name="DifficultyLabel" type="Label" parent="CanvasLayer/VBoxContainer/BotRow/HBoxContainer"]
 margin_right = 149.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 1 )
 text = "Difficulty:"
 
-[node name="Difficulty Value" type="Label" parent="CanvasLayer/VBoxContainer/Bot Row/HBoxContainer"]
+[node name="DifficultyValue" type="Label" parent="CanvasLayer/VBoxContainer/BotRow/HBoxContainer"]
 margin_left = 153.0
 margin_right = 171.0
 margin_bottom = 49.0

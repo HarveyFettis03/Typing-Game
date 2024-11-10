@@ -3,12 +3,15 @@ extends Node2D
 var active_enemy = null 
 var current_letter_index = -1
 var difficulty: int = 0
+var enemies_killed: int = 0
 
 var Enemy =preload("res://Enemy.tscn")
 
 onready var enemy_Container = $EnemyContainer
 onready var spawn_container = $EnemySpawn
 onready var spawn_timer = $SpawnTimer
+onready var difficulty_value = $CanvasLayer/VBoxContainer/BotRow/HBoxContainer/DifficultyValue
+onready var killed_value = $CanvasLayer/VBoxContainer/TopRow2/TopRow/KilledValue
 
 
 func _ready() -> void:
@@ -50,6 +53,8 @@ func _unhandled_input(event: InputEvent) -> void:
 					current_letter_index = -1
 					active_enemy.queue_free()
 					active_enemy = null
+					enemies_killed += 1
+					killed_value.text = str(enemies_killed)
 			else:
 				print("Failedtyped %s instead of %s" % [key_typed, next_character])
 
@@ -75,5 +80,6 @@ func _on_DifficultyTimer_timeout():
 	print("Difficulty increased to %d" % difficulty)
 	var new_wait_time = spawn_timer.wait_time - 0.2
 	spawn_timer.wait_time = clamp(new_wait_time, 1, spawn_timer.wait_time)
+	difficulty_value.text = str(difficulty)
 	
 
