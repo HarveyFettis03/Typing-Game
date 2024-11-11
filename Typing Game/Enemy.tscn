@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://kenney_space-shooter-redux/Spritesheet/sheet.png" type="Texture" id=1]
 [ext_resource path="res://opendyslexic-0.91.12/OpenDyslexicAlta-Regular.otf" type="DynamicFontData" id=2]
@@ -8,12 +8,12 @@
 size = 25
 font_data = ExtResource( 2 )
 
-[node name="Enemy" type="Sprite"]
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 45.8483, 40.7576 )
+
+[node name="Enemy" type="KinematicBody2D"]
 position = Vector2( 848.877, 386.681 )
 rotation = 1.5708
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 425.133, 467.911, 92.3571, 84.8997 )
 script = ExtResource( 3 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -32,6 +32,12 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 44.611, 68.2609 )
-rotation = -1.56448
+position = Vector2( -1.09961, -9.09485 )
 scale = Vector2( 1, 1 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 426.217, 469, 87.6608, 78.9307 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.13763, -9.41522 )
+shape = SubResource( 2 )

@@ -10,14 +10,14 @@ var Enemy =preload("res://Enemy.tscn")
 onready var enemy_Container = $EnemyContainer
 onready var spawn_container = $EnemySpawn
 onready var spawn_timer = $SpawnTimer
+onready var difficulty_timer = $DifficultyTimer
 onready var difficulty_value = $CanvasLayer/VBoxContainer/BotRow/HBoxContainer/DifficultyValue
 onready var killed_value = $CanvasLayer/VBoxContainer/TopRow2/TopRow/KilledValue
+onready var game_over_screen = $CanvasLayer/gameoverscreen
 
 
 func _ready() -> void:
-	randomize()
-	spawn_timer.start()
-	spawn_enemy()
+	start_game()
 
 
 
@@ -69,8 +69,8 @@ func spawn_enemy():
 	var enemy_instance = Enemy.instance()
 	var spawns = spawn_container.get_children()
 	var index = randi() % spawns.size()
-	enemy_Container.add_child(enemy_instance)
 	enemy_instance.global_position = spawns[index].global_position
+	enemy_Container.add_child(enemy_instance)
 	enemy_instance.set_difficulty(difficulty)
 
 
@@ -83,3 +83,34 @@ func _on_DifficultyTimer_timeout():
 	difficulty_value.text = str(difficulty)
 	
 
+
+
+func _on_Area2D_body_entered(body):
+	game_over()
+
+	
+	
+	
+func game_over():
+	game_over_screen.show()
+	spawn_timer.stop()
+	difficulty_timer.stop()
+	active_enemy = null 
+	current_letter_index = -1
+	for enemy in enemy_Container.get_children():
+		enemy.queue_free()
+	
+func start_game():
+	game_over_screen.hide()
+	difficulty = 0
+	enemies_killed = 0
+	difficulty_value.text = str(0)
+	killed_value.text = str(0)
+	randomize()
+	spawn_timer.start()
+	difficulty_timer.start()
+	spawn_enemy()
+	
+
+func _on_RestartButton_pressed():
+	start_game()
